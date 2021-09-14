@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>현재 온도: {{temperature["temp"]}}</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>사진</th>
+                <th>영화제목</th>
+                <th>평점</th>
+                <th>요약</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for movie in movies %}
+                <!-- 영화 테이블 시작 -->
+                <tr>
+                    <td style="width: 10%;"> <img class="card-img-top" src={{movie.small_cover_image}} alt="Card image" style="width:100%"></td>
+                    <td style="width: 20%;">{{movie.title}}</td>
+                    <td style="width: 7%;">{{movie["rating"]}}점</td>
+                    <td style="overflow: auto;">{{movie["summary"]}}</td>
+                </tr>
+                <!-- 영화 테이블 끝 -->
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+
+</html>
